@@ -83,18 +83,22 @@ function suma2(a,b){
 }
 console.log("La suma es ",suma());
 console.log("La suma2 es ",suma2(5,10));
-
+document.addEventListener('DOMContentLoaded', function () {
 //Manipulación de elementos HTML
 const elemento = document.getElementById("titulo");
 elemento.innerHTML="Manipulación e elementos de HTML";
 elemento.style.color="Red";
 
 var boton=document.getElementById("btnEnviar");
-boton.addEventListener('click', () => {
+boton.addEventListener('click', function(event) {
+    // Prevenir que el formulario se envíe y la página se recargue
+    event.preventDefault();
     console.log("Has pulsado el botón");
     var nombre=document.getElementById("nombre");
     console.log(nombre.value);
     var edad=document.getElementById("edad");
     console.log(edad.value);
-    elemento.innerHTML=nombre;
+    elemento.innerHTML=nombre.value;
+
+ });
 });
